@@ -1,0 +1,12 @@
+*cover.out
+*.swp
+.DS_Store
+
+vendor/
+
+# delve artifact
+debug.test
+debug
+
+# Generated Code
+**/generated/**/*.go
