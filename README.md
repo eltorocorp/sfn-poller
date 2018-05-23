@@ -1,5 +1,5 @@
 # sfn-poller
-An API for setting microservice polling for against AWS SFN workflows.
+An API for setting up microservice polling against AWS SFN workflows.
 
 ## example
 Setting up a service to poll a state machine for work.
