@@ -13,7 +13,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/sfn"
 	"github.com/eltorocorp/sfn-poller/sfnpoller"
 	"github.com/eltorocorp/sfn-poller/sfnpoller/pollable"
-  somemicroservice "github.com/coolsoftwareprovider/somerepository"
+        somemicroservice "github.com/coolsoftwareprovider/somerepository"
 )
 
 func main() {
