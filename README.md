@@ -4,7 +4,7 @@ An API for setting up microservice polling against AWS SFN workflows.
 ## example
 Setting up a service to poll a state machine for work.
 
-```
+```go
 import (
 	"context"
 
