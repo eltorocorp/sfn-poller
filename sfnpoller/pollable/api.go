@@ -83,7 +83,7 @@ func (task *Task) Start(ctx cancellablecontextiface.Context) {
 				continue
 			}
 
-			log.Printf("%v starting work on task token: %v...", task.workerName, *getActivityTaskOutput.TaskToken)
+			log.Printf("%v starting work on task token:...", task.workerName)
 
 			handler := reflect.ValueOf(task.handlerFn)
 			handlerType := reflect.TypeOf(task.handlerFn)
@@ -109,7 +109,7 @@ func (task *Task) Start(ctx cancellablecontextiface.Context) {
 				callErr = out[1].Interface().(error)
 			}
 			if callErr != nil {
-				log.Printf("%v sending failure notification to SFN... %s", task.workerName, *getActivityTaskOutput.TaskToken)
+				log.Printf("%v sending failure notification to SFN...", task.workerName)
 				_, err := task.sfnAPI.SendTaskFailure(&sfn.SendTaskFailureInput{
 					Cause:     aws.String(callErr.Error()),
 					Error:     aws.String(callErr.Error()),
@@ -122,7 +122,7 @@ func (task *Task) Start(ctx cancellablecontextiface.Context) {
 					break
 				}
 			} else {
-				log.Printf("%v sending success notification to SFN... %s", task.workerName, *getActivityTaskOutput.TaskToken)
+				log.Printf("%v sending success notification to SFN...", task.workerName)
 				taskOutputJSON := util.MustMarshal(result)
 				_, err := task.sfnAPI.SendTaskSuccess(&sfn.SendTaskSuccessInput{
 					Output:    taskOutputJSON,
